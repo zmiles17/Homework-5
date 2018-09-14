@@ -57,7 +57,6 @@ const verifyFunc = function () {
   $('#results').empty();
   let verifyEmployee = $('.verify-input').val().toLowerCase().trim();
   const verifyArr = employeeList.filter(e => e.name.toLowerCase() === verifyEmployee);
-  console.log(verifyArr.length);
   switch (verifyArr.length) {
     case 0:
       render('Employee Not Found');
@@ -97,7 +96,6 @@ function containsFunc() {
   $('#results').empty();
   const containsEmployeeName = $('.contains-input').val().toLowerCase().trim();
   const containsArr = employeeList.filter(e => e.name.toLowerCase().includes(containsEmployeeName));
-  console.log(containsEmployeeName !== '' && containsArr.length);
   switch (containsEmployeeName !== '' && containsArr.length) {
     default:
       containsArr.forEach(e => render(e.name, e.officeNum, e.phoneNum));
@@ -176,7 +174,7 @@ const deleteFunc = function () {
       break;
   }
 }
- 
+
 
 
 

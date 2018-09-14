@@ -10,9 +10,9 @@ body {
 }
 nav {
     grid-row: span 2;
-    background-color: rgb(51, 51, 51);
+    background-color: rgb(63, 63, 63);
     height: 100%;
-    color: rgb(102,102,101);
+    color: rgb(134, 134, 134);
     padding-left: 20px;
     font-family: 'Montserrat';
     font-weight: bold;
@@ -32,7 +32,7 @@ main {
     background-image: url(images/bckg.jpg);
     background-size: cover;
     background-repeat: no-repeat;
-    opacity: 0.8;
+    opacity: 0.9;
 }
 #content {
     font-family: 'Montserrat';
@@ -46,28 +46,26 @@ main {
 }
 button {
     background: none;
-    color:lightslategray;
+    color:white;
     border: none;
     padding: 0;
     font: inherit;
     cursor: pointer;
     outline: inherit;
     font-size: 20px;
-    display: block;
-    margin: 0 auto;
-}
-input {
-    display: block;
-    margin: 0 auto;
-    border-radius: 10px;
-    border-color: gray;
-    font-family: 'Montserrat';
-    color: black;
-    width: 400px;
     
 }
+input {
+    
+    border-radius: 5px;
+    font-family: 'Montserrat';
+    color: black;
+    width: 350px;
+    height: 30px;
+}
 p {
-    color:lightslategray;
+    margin-top: 10px;
+    color:white;
     font-size: 20px;
     font-family: 'Montserrat';
 }
@@ -102,7 +100,7 @@ li.simplicity {
 i {
     width: 100%;
     color: white;
-    font-size: 50px;
+    font-size: 40px;
     margin-left: 30px;
-    margin-bottom: 20px;
+    margin-bottom: 10px;
 }
