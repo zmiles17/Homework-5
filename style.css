@@ -29,7 +29,10 @@ main {
     display: grid;
     grid-template-rows: 300px 1fr;
     margin: 20px;
-    background-color: black;
+    background-image: url(images/bckg.jpg);
+    background-size: cover;
+    background-repeat: no-repeat;
+    opacity: 0.8;
 }
 #content {
     font-family: 'Montserrat';
@@ -80,6 +83,7 @@ h1 {
     font-size: 50px;
     color: white;
     text-align: center;
+    opacity: 1;
 }
 span {
     color: rgb(248,242,133);
@@ -89,6 +93,7 @@ h6 {
     color: white;
     text-align: center;
     margin-top: 100px;
+    opacity: 1;
 }
 li.simplicity {
     cursor: initial;

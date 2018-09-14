@@ -57,11 +57,14 @@ const verifyFunc = function () {
   $('#results').empty();
   let verifyEmployee = $('.verify-input').val().toLowerCase().trim();
   const verifyArr = employeeList.filter(e => e.name.toLowerCase() === verifyEmployee);
-  if (verifyArr.length) {
-    render('Employee Found')
-  }
-  else {
-    render('Employee Not Found');
+  console.log(verifyArr.length);
+  switch (verifyArr.length) {
+    case 0:
+      render('Employee Not Found');
+      break;
+    default:
+      render('Employee Found')
+      break;
   }
 }
 
@@ -71,15 +74,16 @@ const lookup = function () {
   $('#results').empty();
 }
 function lookupFunc() {
+  $('#results').empty();
   const lookupEmployee = $('.lookup-input').val().toLowerCase().trim();
   const lookupArray = employeeList.filter(employee => employee.name.toLowerCase() === lookupEmployee);
-  if (lookupArray.length) {
-    $('#results').empty();
-    lookupArray.forEach(e => render(e.name, e.officeNum, e.phoneNum));
-  }
-  else {
-    $('#results').empty();
-    render('Employee Not Found');
+  switch (lookupArray.length) {
+    default:
+      lookupArray.forEach(e => render(e.name, e.officeNum, e.phoneNum));
+      break;
+    case 0:
+      render('Employee Not Found');
+      break;
   }
 }
 
@@ -90,15 +94,17 @@ const contains = function () {
   $('#results').empty();
 }
 function containsFunc() {
+  $('#results').empty();
   const containsEmployeeName = $('.contains-input').val().toLowerCase().trim();
   const containsArr = employeeList.filter(e => e.name.toLowerCase().includes(containsEmployeeName));
-  if (containsEmployeeName !== '' && containsArr.length) {
-    $('#results').empty();
-    containsArr.forEach(e => render(e.name, e.officeNum, e.phoneNum));
-  }
-  else {
-    $('#results').empty();
-    render('Employee Not Found');
+  console.log(containsEmployeeName !== '' && containsArr.length);
+  switch (containsEmployeeName !== '' && containsArr.length) {
+    default:
+      containsArr.forEach(e => render(e.name, e.officeNum, e.phoneNum));
+      break;
+    case 0:
+      render('Employee Not Found');
+      break;
   }
 }
 
@@ -108,25 +114,27 @@ const update = function () {
   $('#results').empty();
 }
 function updateFunc() {
+  $('#results').empty();
   const updateEmployee = $('.empInput').val().toLowerCase().trim();
   const updateField = $('.fieldInput').val().trim();
   const updateValue = $('.valueInput').val().trim();
   const updateArr = employeeList.filter(e => e.name.toLowerCase() === updateEmployee);
-  if (updateArr.length) {
-    $('#results').empty();
-    if (updateArr[0].hasOwnProperty(updateField)) {
-      updateArr[0][updateField] = updateValue;
-      updateArr.forEach(e => render(e.name, e.officeNum, e.phoneNum));
-    }
-    else {
-      render('Invalid Field');
-    }
-  }
-  else {
-    $('#results').empty();
-    render('Employee Not Found');
+  switch (updateArr.length) {
+    default:
+      switch (updateArr[0].hasOwnProperty(updateField)) {
+        default: updateArr[0][updateField] = updateValue;
+          updateArr.forEach(e => render(e.name, e.officeNum, e.phoneNum));
+          break;
+        case 0:
+          render('Invalid Field');
+          break;
+      }
+      break;
+    case 0: render('Employee Not Found');
+      break;
   }
 }
+
 
 const add = function () {
   $('#content').html('<p class="name">Name</p> <input class="add-name-input" placeholder="Enter a new employee name"></input> <p class="num">Number</p> <input class="addnum-input" placeholder="Enter an office number"></input> <p class="phone">Phone</p> <input class="phone-input" placeholder="Enter a phone number"></input> <button class="add-btn">Add</button>');
@@ -158,14 +166,17 @@ const deleteFunc = function () {
   $('#results').empty();
   const deleteEmployee = $('.delete-input').val().toLowerCase().trim();
   const index = employeeList.findIndex(e => e.name.toLowerCase() === deleteEmployee);
-  if (index < 0) {
-    render('Employee Not Found')
-  }
-  else {
-    employeeList.splice(index, 1);
-    render('Employee Deleted');
+  switch (index < 0) {
+    case (true):
+      render('Employee Not Found')
+      break;
+    case (false):
+      employeeList.splice(index, 1);
+      render('Employee Deleted');
+      break;
   }
 }
+ 
 
 
 
