@@ -50,7 +50,7 @@ const print = function () {
 }
 
 const verify = function () {
-  $('#content').html('<p>The Minimalists Directory.</p> <input class="verify-input" placeholder="Enter an Employee Name"></input> <button id="verify-btn">Verify</button>');
+  $('#content').html('<p>The Minimalists Directory.</p> <input class="verify-input" placeholder="Enter an Employee Name"></input> <button id="verify-btn"><i class="far fa-search"></i></button>');
   $('#verify-btn').on('click', verifyFunc);
   $('#results').empty();
 }
