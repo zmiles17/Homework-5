@@ -30,9 +30,10 @@ main {
     grid-template-rows: 300px 1fr;
     margin: 20px;
     background-image: url(images/bckg.jpg);
+    background-color: rgb(132, 146, 177);
     background-size: cover;
     background-repeat: no-repeat;
-    opacity: 0.9;
+    background-blend-mode: overlay;
 }
 #content {
     font-family: 'Montserrat';
