@@ -27,13 +27,19 @@ li {
 }
 main {
     display: grid;
-    grid-template-rows: 300px 1fr;
+    grid-template-rows: 150px 1fr;
     margin: 20px;
     background-image: url(images/bckg.jpg);
-    background-color: rgb(132, 146, 177);
+    
+}
+main.homepage {
     background-size: cover;
     background-repeat: no-repeat;
-    background-blend-mode: overlay;
+    background-color: grey;
+    background-blend-mode: soft-light;
+}
+main.opaque {
+    opacity: 0.5;
 }
 #content {
     font-family: 'Montserrat';
@@ -71,7 +77,7 @@ p {
     font-family: 'Montserrat';
 }
 #results p:nth-child(3n) {
-    margin-bottom: 10px;
+    margin-bottom: 20px;
 }
 #results p {
     color: white;
@@ -83,6 +89,7 @@ h1 {
     color: white;
     text-align: center;
     opacity: 1;
+    margin-top: 150px;
 }
 span {
     color: rgb(248,242,133);
@@ -98,13 +105,16 @@ li.simplicity {
     cursor: initial;
     padding-bottom: 20px;
 }
-i {
+i.fa-address-book {
     width: 100%;
     color: white;
     font-size: 40px;
     margin-left: 30px;
     margin-bottom: 10px;
 }
-i.far {
+i.fa-search {
     font-weight: 800;
+}
+p.directory {
+    margin-bottom: 20px;
 }

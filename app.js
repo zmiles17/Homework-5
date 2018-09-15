@@ -45,12 +45,12 @@ const employeeList = [
 const print = function () {
   $('#content').empty();
   $('#results').empty();
-  $('#content').html('<p>The Minimalists Directory.</p>');
-  employeeList.forEach(e => render(e.name, e.officeNum, e.phoneNum));
+  $('#content').html('<p class="directory">The Minimalists Directory.</p>');
+  employeeList.forEach(e => render("Name: " + e.name,"Office Number: " + e.officeNum, "Phone Number: " + e.phoneNum));
 }
 
 const verify = function () {
-  $('#content').html('<p>The Minimalists Directory.</p> <input class="verify-input" placeholder="Enter an Employee Name"></input> <button id="verify-btn"><i class="far fa-search"></i></button>');
+  $('#content').html('<p class="directory">The Minimalists Directory.</p> <input class="verify-input" placeholder="Enter an Employee Name"></input> <button id="verify-btn"><i class="far fa-search"></i></button>');
   $('#verify-btn').on('click', verifyFunc);
   $('#results').empty();
 }
@@ -69,7 +69,7 @@ const verifyFunc = function () {
 }
 
 const lookup = function () {
-  $('#content').html('<p>The Minimalists Directory.</p> <input class="lookup-input" placeholder="Enter an Employee Name"></input> <button id="lookup-btn">Lookup</button>');
+  $('#content').html('<p class="directory">The Minimalists Directory.</p> <input class="lookup-input" placeholder="Enter an Employee Name"></input> <button id="lookup-btn"><i class="far fa-search"></i></button>');
   $('#lookup-btn').on('click', lookupFunc);
   $('#results').empty();
 }
@@ -79,7 +79,7 @@ function lookupFunc() {
   const lookupArray = employeeList.filter(employee => employee.name.toLowerCase() === lookupEmployee);
   switch (lookupArray.length) {
     default:
-      lookupArray.forEach(e => render(e.name, e.officeNum, e.phoneNum));
+      lookupArray.forEach(e => render("Name: " + e.name,"Office Number: " + e.officeNum, "Phone Number: " + e.phoneNum));
       break;
     case 0:
       render('Employee Not Found');
@@ -89,7 +89,7 @@ function lookupFunc() {
 
 
 const contains = function () {
-  $('#content').html('<p>The Minimalists Directory.</p> <input class="contains-input" placeholder="Enter part of an Employee Name"></input> <button id="contains-btn">Contains</button>');
+  $('#content').html('<p class="directory">The Minimalists Directory.</p> <input class="contains-input" placeholder="Enter part of an Employee Name"></input> <button id="contains-btn"><i class="far fa-search"></i></button>');
   $('#contains-btn').on('click', containsFunc);
   $('#results').empty();
 }
@@ -99,7 +99,7 @@ function containsFunc() {
   const containsArr = employeeList.filter(e => e.name.toLowerCase().includes(containsEmployeeName));
   switch (containsEmployeeName !== '' && containsArr.length) {
     default:
-      containsArr.forEach(e => render(e.name, e.officeNum, e.phoneNum));
+      containsArr.forEach(e => render("Name: " + e.name,"Office Number: " + e.officeNum, "Phone Number: " + e.phoneNum));
       break;
     case 0:
       render('Employee Not Found');
@@ -108,7 +108,7 @@ function containsFunc() {
 }
 
 const update = function () {
-  $('#content').html('<p>The Minimalists Directory.</p> <p class="name">Name</p> <input class="empInput" placeholder="Enter an existing employee name"></input>   <p class="num">Field</p> <input class="fieldInput" placeholder="Enter a field to update (name, phoneNum, officeNum)"></input>  <p class="phone">New Info</p> <input class="valueInput" placeholder="Enter the updated information"></input>  <button id="update-btn">Update</button>');
+  $('#content').html('<p class="directory">The Minimalists Directory.</p> <input class="empInput" placeholder="Enter an existing employee name"></input>  <input class="fieldInput" placeholder="Enter a field to update (name, phoneNum, officeNum)"></input> <input class="valueInput" placeholder="Enter the updated information"></input>  <button id="update-btn"><i class="far fa-search"></i></button>');
   $('#update-btn').on('click', updateFunc);
   $('#results').empty();
 }
@@ -122,7 +122,7 @@ function updateFunc() {
     default:
       switch (updateArr[0].hasOwnProperty(updateField)) {
         default: updateArr[0][updateField] = updateValue;
-          updateArr.forEach(e => render(e.name, e.officeNum, e.phoneNum));
+          updateArr.forEach(e => render("Name: " + e.name,"Office Number: " + e.officeNum, "Phone Number: " + e.phoneNum));
           break;
         case 0:
           render('Invalid Field');
@@ -136,7 +136,7 @@ function updateFunc() {
 
 
 const add = function () {
-  $('#content').html('<p>The Minimalists Directory.</p> <p class="name">Name</p> <input class="add-name-input" placeholder="Enter a new employee name"></input> <p class="num">Number</p> <input class="addnum-input" placeholder="Enter an office number"></input> <p class="phone">Phone</p> <input class="phone-input" placeholder="Enter a phone number"></input> <button class="add-btn">Add</button>');
+  $('#content').html('<p class="directory">The Minimalists Directory.</p>  <input class="add-name-input" placeholder="Enter a new employee name"></input> <input class="addnum-input" placeholder="Enter an office number"></input>  <input class="phone-input" placeholder="Enter a phone number"></input> <button class="add-btn"><i class="far fa-search"></i></button>');
   $('.add-btn').on('click', addFunc);
   $('#results').empty();
 }
@@ -150,14 +150,14 @@ const addFunc = function () {
     officeNum: officeNumber,
     phoneNum: teleNumber
   });
-  render(employeeList[employeeList.length - 1].name);
-  render(employeeList[employeeList.length - 1].officeNum);
-  render(employeeList[employeeList.length - 1].phoneNum);
+  render("Name: " + employeeList[employeeList.length - 1].name);
+  render("Office Number: " + employeeList[employeeList.length - 1].officeNum);
+  render("Phone Number: " + employeeList[employeeList.length - 1].phoneNum);
 }
 
 
 const deleteEmp = function () {
-  $('#content').html('<p>The Minimalists Directory.</p> <input class="delete-input"></input> <button class="delete-btn">Delete</button>')
+  $('#content').html('<p class="directory">The Minimalists Directory.</p> <input class="delete-input" placeholder="Enter an employee name"></input> <button class="delete-btn"><i class="far fa-search"></i></button>')
   $('.delete-btn').on('click', deleteFunc);
   $('#results').empty();
 }
@@ -181,6 +181,7 @@ const deleteFunc = function () {
 
 
 
+
 $(".print-nav").on('click', print);
 $(".verify-nav").on('click', verify);
 $(".lookup-nav").on('click', lookup);
@@ -188,6 +189,7 @@ $(".contains-nav").on('click', contains);
 $(".update-nav").on('click', update);
 $(".add-nav").on('click', add);
 $(".delete-nav").on('click', deleteEmp);
+$('button').on('click', addOpacity);
 
 
 

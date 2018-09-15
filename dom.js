@@ -71,3 +71,8 @@ const $ = function (sel) {
     p.textContent = content;
     document.getElementById('results').appendChild(p);
   }
+  
+  function addOpacity() {
+    var element = document.getElementById("main");
+    element.classList.add("opaque");
+  }
