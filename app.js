@@ -46,7 +46,7 @@ const print = function () {
   $('#content').empty();
   $('#results').empty();
   $('#content').html('<p class="directory">The Minimalists Directory.</p>');
-  employeeList.forEach(e => render("Name: " + e.name,"Office Number: " + e.officeNum, "Phone Number: " + e.phoneNum));
+  employeeList.forEach(e => render("Name: " + e.name, "Office Number: " + e.officeNum, "Phone Number: " + e.phoneNum));
 }
 
 const verify = function () {
@@ -79,7 +79,7 @@ function lookupFunc() {
   const lookupArray = employeeList.filter(employee => employee.name.toLowerCase() === lookupEmployee);
   switch (lookupArray.length) {
     default:
-      lookupArray.forEach(e => render("Name: " + e.name,"Office Number: " + e.officeNum, "Phone Number: " + e.phoneNum));
+      lookupArray.forEach(e => render("Name: " + e.name, "Office Number: " + e.officeNum, "Phone Number: " + e.phoneNum));
       break;
     case 0:
       render('Employee Not Found');
@@ -99,7 +99,7 @@ function containsFunc() {
   const containsArr = employeeList.filter(e => e.name.toLowerCase().includes(containsEmployeeName));
   switch (containsEmployeeName !== '' && containsArr.length) {
     default:
-      containsArr.forEach(e => render("Name: " + e.name,"Office Number: " + e.officeNum, "Phone Number: " + e.phoneNum));
+      containsArr.forEach(e => render("Name: " + e.name, "Office Number: " + e.officeNum, "Phone Number: " + e.phoneNum));
       break;
     case 0:
       render('Employee Not Found');
@@ -122,7 +122,7 @@ function updateFunc() {
     default:
       switch (updateArr[0].hasOwnProperty(updateField)) {
         default: updateArr[0][updateField] = updateValue;
-          updateArr.forEach(e => render("Name: " + e.name,"Office Number: " + e.officeNum, "Phone Number: " + e.phoneNum));
+          updateArr.forEach(e => render("Name: " + e.name, "Office Number: " + e.officeNum, "Phone Number: " + e.phoneNum));
           break;
         case 0:
           render('Invalid Field');
@@ -189,7 +189,7 @@ $(".contains-nav").on('click', contains);
 $(".update-nav").on('click', update);
 $(".add-nav").on('click', add);
 $(".delete-nav").on('click', deleteEmp);
-$('button').on('click', addOpacity);
+
 
 
 
