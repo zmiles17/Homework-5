@@ -108,7 +108,7 @@ function containsFunc() {
 }
 
 const update = function () {
-  $('#content').html('<p class="directory">The Minimalists Directory.</p> <input class="empInput" placeholder="Enter an existing employee name"></input>  <input class="fieldInput" placeholder="Enter a field to update (name, phoneNum, officeNum)"></input> <input class="valueInput" placeholder="Enter the updated information"></input>  <button id="update-btn"><i class="far fa-search"></i></button>');
+  $('#content').html('<p class="directory">The Minimalists Directory.</p> <input class="empInput" placeholder="Enter an existing employee name"></input>  <select class="fieldInput" name="Update Field"><option value="name">Name</option><option value="phoneNum">Phone Number</option><option value="officeNum">Office Number</option></select> <input class="valueInput" placeholder="Enter the updated information"></input>  <button id="update-btn"><i class="far fa-search"></i></button>');
   $('#update-btn').on('click', updateFunc);
   $('#results').empty();
 }
