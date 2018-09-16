@@ -50,7 +50,7 @@ const print = function () {
 }
 
 const verify = function () {
-  $('#content').html('<p class="directory">The Minimalists Directory.</p> <input class="verify-input" placeholder="Enter an Employee Name"></input> <button id="verify-btn"><i class="far fa-search"></i></button>');
+  $('#content').html('<p class="directory">The Minimalists Directory.</p> <input class="verify-input" placeholder="Enter an employee name"></input> <button id="verify-btn"><i class="far fa-search"></i></button>');
   $('#verify-btn').on('click', verifyFunc);
   $('#results').empty();
 }
@@ -69,7 +69,7 @@ const verifyFunc = function () {
 }
 
 const lookup = function () {
-  $('#content').html('<p class="directory">The Minimalists Directory.</p> <input class="lookup-input" placeholder="Enter an Employee Name"></input> <button id="lookup-btn"><i class="far fa-search"></i></button>');
+  $('#content').html('<p class="directory">The Minimalists Directory.</p> <input class="lookup-input" placeholder="Enter an employee name"></input> <button id="lookup-btn"><i class="far fa-search"></i></button>');
   $('#lookup-btn').on('click', lookupFunc);
   $('#results').empty();
 }
@@ -89,7 +89,7 @@ function lookupFunc() {
 
 
 const contains = function () {
-  $('#content').html('<p class="directory">The Minimalists Directory.</p> <input class="contains-input" placeholder="Enter part of an Employee Name"></input> <button id="contains-btn"><i class="far fa-search"></i></button>');
+  $('#content').html('<p class="directory">The Minimalists Directory.</p> <input class="contains-input" placeholder="Enter part of an employee name"></input> <button id="contains-btn"><i class="far fa-search"></i></button>');
   $('#contains-btn').on('click', containsFunc);
   $('#results').empty();
 }
@@ -176,10 +176,10 @@ const deleteFunc = function () {
   }
 }
 
-
-
-
-
+const opaqueify = function(){
+  $("main").toggleClass("opaque");
+};
+$("button").on('click', opaqueify);
 
 
 $(".print-nav").on('click', print);
