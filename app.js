@@ -176,10 +176,10 @@ const deleteFunc = function () {
   }
 }
 
-const opaqueify = function(){
-  $("main").toggleClass("opaque");
-};
-$("button").on('click', opaqueify);
+// const opaqueify = function(){
+//   $("main").toggleClass("opaque");
+// };
+// $("button").on('click', opaqueify);
 
 
 $(".print-nav").on('click', print);

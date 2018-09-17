@@ -29,4 +29,6 @@ $('#more').on('click', addButton);
 
 /*broken event listener.
  Should render the new button's number to the page when clicked */
-$('.new').on('click', printNum);
+
+
+ $('#content').on('click', '.new', printNum);
