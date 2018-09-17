@@ -1,4 +1,5 @@
-const employeeList = [
+state = {
+employeeList: [
   {
     name: 'Jan',
     officeNum: 1,
@@ -39,14 +40,15 @@ const employeeList = [
     officeNum: 345,
     phoneNum: '222-789-5231'
   }
-];
+]
+}
 
 
 const print = function () {
   $('#content').empty();
   $('#results').empty();
   $('#content').html('<p class="directory">The Minimalists Directory.</p>');
-  employeeList.forEach(e => render("Name: " + e.name, "Office Number: " + e.officeNum, "Phone Number: " + e.phoneNum));
+  state.employeeList.forEach(e => render("Name: " + e.name, "Office Number: " + e.officeNum, "Phone Number: " + e.phoneNum));
 }
 
 const verify = function () {
@@ -57,7 +59,7 @@ const verify = function () {
 const verifyFunc = function () {
   $('#results').empty();
   let verifyEmployee = $('.verify-input').val().toLowerCase().trim();
-  const verifyArr = employeeList.filter(e => e.name.toLowerCase() === verifyEmployee);
+  const verifyArr = state.employeeList.filter(e => e.name.toLowerCase() === verifyEmployee);
   switch (verifyArr.length) {
     case 0:
       render('Employee Not Found');
@@ -76,7 +78,7 @@ const lookup = function () {
 function lookupFunc() {
   $('#results').empty();
   const lookupEmployee = $('.lookup-input').val().toLowerCase().trim();
-  const lookupArray = employeeList.filter(employee => employee.name.toLowerCase() === lookupEmployee);
+  const lookupArray = state.employeeList.filter(employee => employee.name.toLowerCase() === lookupEmployee);
   switch (lookupArray.length) {
     default:
       lookupArray.forEach(e => render("Name: " + e.name, "Office Number: " + e.officeNum, "Phone Number: " + e.phoneNum));
@@ -96,7 +98,7 @@ const contains = function () {
 function containsFunc() {
   $('#results').empty();
   const containsEmployeeName = $('.contains-input').val().toLowerCase().trim();
-  const containsArr = employeeList.filter(e => e.name.toLowerCase().includes(containsEmployeeName));
+  const containsArr = state.employeeList.filter(e => e.name.toLowerCase().includes(containsEmployeeName));
   switch (containsEmployeeName !== '' && containsArr.length) {
     default:
       containsArr.forEach(e => render("Name: " + e.name, "Office Number: " + e.officeNum, "Phone Number: " + e.phoneNum));
@@ -117,7 +119,7 @@ function updateFunc() {
   const updateEmployee = $('.empInput').val().toLowerCase().trim();
   const updateField = $('.fieldInput').val().trim();
   const updateValue = $('.valueInput').val().trim();
-  const updateArr = employeeList.filter(e => e.name.toLowerCase() === updateEmployee);
+  const updateArr = state.employeeList.filter(e => e.name.toLowerCase() === updateEmployee);
   switch (updateArr.length) {
     default:
       switch (updateArr[0].hasOwnProperty(updateField)) {
@@ -145,15 +147,24 @@ const addFunc = function () {
   const addEmployee = $('.add-name-input').val();
   const officeNumber = $('.addnum-input').val();
   const teleNumber = $('.phone-input').val();
-  employeeList.push({
-    name: addEmployee,
-    officeNum: officeNumber,
-    phoneNum: teleNumber
-  });
-  render("Name: " + employeeList[employeeList.length - 1].name);
-  render("Office Number: " + employeeList[employeeList.length - 1].officeNum);
-  render("Phone Number: " + employeeList[employeeList.length - 1].phoneNum);
+  switch (isNaN(officeNumber) || isNaN(teleNumber) || addEmployee === '' || !isNaN(addEmployee)){
+    case (true): 
+      render('Invalid Input')
+      break;
+    case(false):
+    state.employeeList.push({
+      name: addEmployee,
+      officeNum: officeNumber,
+      phoneNum: teleNumber
+    });
+    render("Name: " + state.employeeList[state.employeeList.length - 1].name);
+    render("Office Number: " + state.employeeList[state.employeeList.length - 1].officeNum);
+    render("Phone Number: " + state.employeeList[state.employeeList.length - 1].phoneNum);
+    break;
+  }
 }
+
+  
 
 
 const deleteEmp = function () {
@@ -164,13 +175,13 @@ const deleteEmp = function () {
 const deleteFunc = function () {
   $('#results').empty();
   const deleteEmployee = $('.delete-input').val().toLowerCase().trim();
-  const index = employeeList.findIndex(e => e.name.toLowerCase() === deleteEmployee);
+  const index = state.employeeList.findIndex(e => e.name.toLowerCase() === deleteEmployee);
   switch (index < 0) {
     case (true):
       render('Employee Not Found')
       break;
     case (false):
-      employeeList.splice(index, 1);
+      state.employeeList.splice(index, 1);
       render('Employee Deleted');
       break;
   }
