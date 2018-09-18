@@ -188,9 +188,9 @@ const deleteFunc = function () {
 }
 
 // const opaqueify = function(){
-//   $("main").toggleClass("opaque");
-// };
-// $("button").on('click', opaqueify);
+//   $('main').toggleClass('homepage');
+// }
+// $('li').on('click', opaqueify);
 
 
 $(".print-nav").on('click', print);

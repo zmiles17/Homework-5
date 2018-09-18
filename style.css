@@ -40,6 +40,10 @@ main.homepage {
     opacity: 0.8;
 }
 
+.opaque {
+    opacity: 0.2;
+}
+
 #content {
     font-family: 'Montserrat';
     font-size: 40px;
@@ -93,10 +97,7 @@ h1 {
 span {
     color: rgb(248,242,133);
 }
-a {
-    color: rgb(248,242,133);
-    text-decoration: none;
-}
+
 h6 {
     font-family: 'Montserrat';
     color: white;
@@ -107,6 +108,7 @@ h6 {
 li.simplicity {
     cursor: initial;
     padding-bottom: 20px;
+    color: rgb(248,242,133);
 }
 i.fa-address-book {
     width: 100%;
