@@ -1,46 +1,46 @@
 state = {
-employeeList: [
-  {
-    name: 'Jan',
-    officeNum: 1,
-    phoneNum: '222-222-2222'
-  },
-  {
-    name: 'Juan',
-    officeNum: 304,
-    phoneNum: '489-789-8789'
-  },
-  {
-    name: 'Margie',
-    officeNum: 789,
-    phoneNum: '789-789-7897'
-  },
-  {
-    name: 'Sara',
-    officeNum: 32,
-    phoneNum: '222-789-4654'
-  },
-  {
-    name: 'Tyrell',
-    officeNum: 3,
-    phoneNum: '566-621-0452'
-  },
-  {
-    name: 'Tasha',
-    officeNum: 213,
-    phoneNum: '789-766-5675'
-  },
-  {
-    name: 'Ty',
-    officeNum: 211,
-    phoneNum: '789-766-7865'
-  },
-  {
-    name: 'Sarah',
-    officeNum: 345,
-    phoneNum: '222-789-5231'
-  }
-]
+  employeeList: [
+    {
+      name: 'Jan',
+      officeNum: 1,
+      phoneNum: '222-222-2222'
+    },
+    {
+      name: 'Juan',
+      officeNum: 304,
+      phoneNum: '489-789-8789'
+    },
+    {
+      name: 'Margie',
+      officeNum: 789,
+      phoneNum: '789-789-7897'
+    },
+    {
+      name: 'Sara',
+      officeNum: 32,
+      phoneNum: '222-789-4654'
+    },
+    {
+      name: 'Tyrell',
+      officeNum: 3,
+      phoneNum: '566-621-0452'
+    },
+    {
+      name: 'Tasha',
+      officeNum: 213,
+      phoneNum: '789-766-5675'
+    },
+    {
+      name: 'Ty',
+      officeNum: 211,
+      phoneNum: '789-766-7865'
+    },
+    {
+      name: 'Sarah',
+      officeNum: 345,
+      phoneNum: '222-789-5231'
+    }
+  ]
 }
 
 
@@ -147,24 +147,24 @@ const addFunc = function () {
   const addEmployee = $('.add-name-input').val();
   const officeNumber = $('.addnum-input').val();
   const teleNumber = $('.phone-input').val();
-  switch (isNaN(officeNumber) || isNaN(teleNumber) || addEmployee === '' || !isNaN(addEmployee)){
-    case (true): 
+  switch (isNaN(officeNumber) || isNaN(teleNumber) || addEmployee === '' || !isNaN(addEmployee)) {
+    case (true):
       render('Invalid Input')
       break;
-    case(false):
-    state.employeeList.push({
-      name: addEmployee,
-      officeNum: officeNumber,
-      phoneNum: teleNumber
-    });
-    render("Name: " + state.employeeList[state.employeeList.length - 1].name);
-    render("Office Number: " + state.employeeList[state.employeeList.length - 1].officeNum);
-    render("Phone Number: " + state.employeeList[state.employeeList.length - 1].phoneNum);
-    break;
+    case (false):
+      state.employeeList.push({
+        name: addEmployee,
+        officeNum: officeNumber,
+        phoneNum: teleNumber
+      });
+      render("Name: " + state.employeeList[state.employeeList.length - 1].name);
+      render("Office Number: " + state.employeeList[state.employeeList.length - 1].officeNum);
+      render("Phone Number: " + state.employeeList[state.employeeList.length - 1].phoneNum);
+      break;
   }
 }
 
-  
+
 
 
 const deleteEmp = function () {
@@ -187,7 +187,7 @@ const deleteFunc = function () {
   }
 }
 
-const home = function(){
+const home = function () {
   $('main').empty();
   $('main').html(`<main id="main" class="homepage">
   <div id="content"></div>
