@@ -106,7 +106,7 @@ h6 {
     opacity: 1;
 }
 li.simplicity {
-    cursor: initial;
+    cursor: pointer;
     padding-bottom: 20px;
     color: rgb(248,242,133);
 }

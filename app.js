@@ -187,10 +187,17 @@ const deleteFunc = function () {
   }
 }
 
-// const opaqueify = function(){
-//   $('main').toggleClass('homepage');
-// }
-// $('li').on('click', opaqueify);
+const home = function(){
+  $('main').empty();
+  $('main').html(`<main id="main" class="homepage">
+  <div id="content"></div>
+  <div id="results">
+    <h1>WELCOME TO <span>SIMPLICITY</span></h1>
+    <h6>The Minimalists Directory.</h6>
+  </div>
+</main>`);
+}
+$('.simplicity').on('click', home);
 
 
 $(".print-nav").on('click', print);
